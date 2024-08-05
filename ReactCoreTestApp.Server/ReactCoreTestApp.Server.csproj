@@ -11,12 +11,53 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Assets\config.json" />
+    <Content Remove="Assets\special_tokens_map.json" />
+    <Content Remove="Assets\tokenizer.json" />
+    <Content Remove="Assets\tokenizer_config.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\llama-2-7b-chat.Q4_K_M.gguf" />
+    <None Remove="Assets\model.onnx" />
+    <None Remove="Assets\README.md" />
+    <None Remove="Assets\vocab.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\llama-2-7b-chat.Q4_K_M.gguf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\model.onnx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\special_tokens_map.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\tokenizer.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\tokenizer_config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\vocab.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AllMiniLmL6V2Sharp" Version="0.0.1" />
     <PackageReference Include="ChromaDBSharp" Version="0.0.1" />
     <PackageReference Include="Docnet.Core" Version="2.6.0" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.57" />
     <PackageReference Include="LLamaSharp" Version="0.8.1" />
-    <PackageReference Include="LLamaSharp.Backend.Cuda12" Version="0.8.1" />
+    <PackageReference Include="LLamaSharp.Backend.Cuda11" Version="0.8.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
       <Version>8.*-*</Version>
     </PackageReference>

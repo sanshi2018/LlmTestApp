@@ -1,4 +1,5 @@
-﻿using ChromaDBSharp.Client;
+﻿using System.Diagnostics;
+using ChromaDBSharp.Client;
 using ChromaDBSharp.Embeddings;
 using Microsoft.Extensions.Options;
 using ReactCoreTestApp.Server.Data;
@@ -23,7 +24,16 @@ namespace ReactCoreTestApp.Server.Services
             _logger = logger;
             _context = context;
             _chromaClient = chromaDBClient;
-            _collectionClient = chromaDBClient.GetCollection(options.Value.ChromaDocumentCollection, embedder);
+            try
+            {
+                _collectionClient = chromaDBClient.GetCollection(options.Value.ChromaDocumentCollection, embedder);
+            }
+            catch (Exception e)
+            {
+                _collectionClient = chromaDBClient.CreateCollection(options.Value.ChromaDocumentCollection);
+                Debug.WriteLine("Failed to get collection, creating new collection.");
+            }
+
             _textSplitter = textSplitter;
         }
 

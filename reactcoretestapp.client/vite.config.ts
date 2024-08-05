@@ -47,19 +47,19 @@ export default defineConfig({
     server: {
         proxy: {
             '^/weatherforecast': {
-                target: 'https://localhost:7218/',
+                target: 'http://localhost:5064/',
                 secure: false
             },
             '^/api/document': {
-                target: 'https://localhost:7218/',
+                target: 'http://localhost:5064/',
                 secure: false
             },
             '^/api/document/query': {
-                target: 'https://localhost:7218/',
+                target: 'http://localhost:5064/',
                 secure: false
             },
             '^/api/chat': {
-                target: 'https://localhost:7218/',
+                target: 'http://localhost:5064/',
                 secure: false
             }
         },
